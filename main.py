@@ -1,24 +1,7 @@
-# This is a sample Python script.
-
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-def print_abc():
-    print('abc')
-
-def print_efg():
-    print("efg")
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm Google Chrome Canary. 20221127.001')
-
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+import pandas_datareader.data as web
+import datetime as dt
+start = dt.datetime(2021,1,1)#获取数据的时间段-起始时间
+#end = dt.datetime(2021,6,10)#获取数据的时间段-结束时间
+end = dt.date.today()#结束时间为当前时间
+stockData = web.DataReader("603927.SS", "yahoo", start, end)#股票为中科软，数据源为雅虎
+stockData.to_csv('StockData/603927.csv')
